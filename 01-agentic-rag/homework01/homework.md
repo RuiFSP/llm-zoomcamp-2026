@@ -307,3 +307,28 @@ Free course by @DataTalksClub: https://github.com/DataTalksClub/llm-zoomcamp/
 
 * Submit your results here: https://courses.datatalks.club/llm-zoomcamp-2026/hw1
 * It's possible your answers won't match exactly. If so, select the closest one.
+
+## Estimated time
+
+- Expect ~5–10 hours to complete this homework depending on familiarity with Python and LLM APIs.
+
+## Rubric & grading
+
+This rubric is designed for quick, consistent grading (manual or automated):
+
+- Correct data extraction and indexing (Q2, Q4): 25%
+- Correct RAG answer and token reporting (Q3): 25%
+- Correct chunking and reduced token usage (Q5): 15%
+- Agent implementation and tool usage (Q6): 25%
+- Documentation, reproducibility, and code quality: 10%
+
+Notes on automated checks
+- Where possible, provide small unit tests or scripts in `homework01/tests/` to validate answers automatically. If you plan to run automated grading, include a `requirements.txt` and a `run_tests.sh` script.
+
+## Submission & feedback
+
+- Preferred submission: open a GitHub PR to your fork with your homework files (notebooks, scripts) and a short `README.md` describing how to run your solution.
+- If using the cohort LMS link above, include a link to your PR or a ZIP file with your solution.
+- For peer review cohorts: provide a short reflection (3–5 bullet points) about what you learned and any open questions.
+
+If you want, I can add a small `homework01/tests/` skeleton and a `run_tests.sh` script to help automate checks — should I add that? 
