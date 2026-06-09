@@ -7,7 +7,7 @@ Purpose
 - Each module lives in a top-level folder named `NN-topic-name` and contains the module's `class_materials/` and `homeworkNN/` directories.
 
 Reference
-- This roadmap and structure are inspired by the DataTalksClub LLM Zoomcamp: https://github.com/DataTalksClub/llm-zoomcamp
+- The structure is inspired by the DataTalksClub LLM Zoomcamp: https://github.com/DataTalksClub/llm-zoomcamp
 
 Module structure (convention)
 - `01-intro/`
@@ -21,7 +21,7 @@ How to add and maintain a module
 	- `homeworkNN/` should contain the assignment, tests (where applicable), and submission instructions.
 3. Update this README's roadmap when you add or reorder modules.
 
-Proposed module roadmap
+Module roadmap
 1. 01-intro — Course intro, environment, datasets, basic prompts
 2. 02-foundations — LLM basics, tokens, prompting, evaluation
 3. 03-retrieval-augmented-generation — Inverted index, FAISS, embeddings, RAG
@@ -30,14 +30,3 @@ Proposed module roadmap
 6. 06-evaluation-and-debugging — Metrics, adversarial testing, prompt-debugging
 7. 07-deployment-and-costs — Serving models, latency, cost optimization
 8. 08-advanced-topics — Multimodality, fine-tuning, RLHF overview
-
-Contributing
-- When adding content, follow the module structure and add a short summary in the module folder `README.md`.
-- Optionally open an OpenSpec change to track larger scope changes (I can help create one).
-
-Contact
-- Maintainer: RuiFSPinto
-
-Files added
-- `syllabus.md` — local course schedule and roadmap.
-- `docs/datatalksclub-mapping.md` — mapping to DataTalksClub syllabus.
