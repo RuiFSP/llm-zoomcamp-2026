@@ -12,8 +12,8 @@ Reference
 
 ## Course Progress / Module Roadmap
 
-1. 01-agentic-rag — Agentic RAG ([01-agentic-rag](01-agentic-rag))
-2. 02-vector-search — Vector Search ([02-vector-search](02-vector-search))
+1. 01-agentic-rag — Agentic RAG ([01-agentic-rag](01-agentic-rag)) ✅
+2. 02-vector-search — Vector Search ([02-vector-search](02-vector-search)) 💻
 3. 03-orchestration — Orchestration (planned)
 4. 04-evaluation — Evaluation (planned)
 5. 05-monitoring — Monitoring (planned)
@@ -25,7 +25,7 @@ Reference
 
 - ### 01-agentic-rag — Agentic RAG:
 
-	#### Key topics covered (Module 01)
+	#### Key topics covered (Module 01) ✔
 
 	- RAG fundamentals: combining a retriever (index/search) with an LLM to answer
 		queries using retrieved context instead of relying only on the model's
