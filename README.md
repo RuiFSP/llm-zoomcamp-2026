@@ -9,31 +9,49 @@ Purpose
 Reference
 - The structure is inspired by the DataTalksClub LLM Zoomcamp: https://github.com/DataTalksClub/llm-zoomcamp
 
-Module structure (convention)
-- `01-intro/`
-	- `class_materials/` (slides, notebooks, code)
-	- `homework01/` (assignments and tests)
 
-How to add and maintain a module
-1. Create a new folder `NN-topic-name/` following numbering order.
-2. Each week add the current lesson assets to `class_materials/` and the week's assignments to `homeworkNN/`.
-	- `class_materials/` should contain lesson markdown, notebooks, slides, and runnable code.
-	- `homeworkNN/` should contain the assignment, tests (where applicable), and submission instructions.
-3. Update this README's roadmap when you add or reorder modules.
+## Course Progress / Module Roadmap
+
+1. 01-agentic-rag — Agentic RAG ([01-agentic-rag](01-agentic-rag))
+2. 02-vector-search — Vector Search ([02-vector-search](02-vector-search))
+3. 03-orchestration — Orchestration (planned)
+4. 04-evaluation — Evaluation (planned)
+5. 05-monitoring — Monitoring (planned)
+6. 06-best-practices — Best Practices (planned)
+7. 07-project-example — Project Example (planned)
 
 
 ## Module Summaries
 
-- **01-agentic-rag — Agentic RAG:** Build a Retrieval-Augmented Generation
-	(RAG) pipeline from lesson pages: ingest lesson markdowns from GitHub,
-	index content with `minsearch`, apply chunking for long pages, and combine
-	retrieval with an LLM to answer questions. The module additionally covers
-	measuring token usage and costs, and turning RAG into an agent by exposing
-	a `search` tool so the model can decide when to look up information.
+- ### 01-agentic-rag — Agentic RAG:
 
-	- Folder: [01-agentic-rag](01-agentic-rag)
+	#### Key topics covered (Module 01)
 
-- **02-vector-search — Vector Search (materials available):** Covers
-  embeddings, vector indexes (pgvector, SQLite vector extensions), persistent
-  vector stores, and practical examples with `minsearch` + vector backends.
-  Folder: [02-vector-search](02-vector-search)
+	- RAG fundamentals: combining a retriever (index/search) with an LLM to answer
+		queries using retrieved context instead of relying only on the model's
+		parametric knowledge.
+	- Document ingestion: fetching lesson markdown files from GitHub with
+		`gitsource` and parsing into simple documents with `filename` and
+		`content` fields.
+	- Indexing and search: using `minsearch` to index `content` as a text field
+		and `filename` as a keyword field; crafting queries and inspecting top
+		results to validate relevance.
+	- Chunking for better retrieval: splitting long pages into overlapping
+		chunks (`chunk_documents`) so matches are more precise and prompts remain
+		smaller.
+	- Token usage and cost awareness: estimating prompt tokens with `tiktoken`
+		when available (fallback heuristic otherwise), reading provider-reported
+		usage from LLM responses, and computing approximate cost per token.
+	- Making RAG robust: adapting helper classes to work with `filename`/`content`
+		documents, handling different index APIs, and defensively extracting
+		provider usage fields.
+	- Agentic loop: giving the model a `search` tool (implemented over the chunk
+		index) and running an agent loop (ToyAIKit or equivalent) that decides when
+		to call `search` and when to answer; observing that tool-call counts vary
+		between runs.
+
+
+- ### 02-vector-search — Vector Search (materials available):
+
+	#### Key topics covered (Module 02)
+
