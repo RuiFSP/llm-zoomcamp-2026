@@ -21,12 +21,14 @@ How to add and maintain a module
 	- `homeworkNN/` should contain the assignment, tests (where applicable), and submission instructions.
 3. Update this README's roadmap when you add or reorder modules.
 
-Module roadmap
-1. 01-intro — Course intro, environment, datasets, basic prompts
-2. 02-foundations — LLM basics, tokens, prompting, evaluation
-3. 03-retrieval-augmented-generation — Inverted index, FAISS, embeddings, RAG
-4. 04-agents — Tools, function calling, simple agent loops
-5. 05-agentic-rag — Combining agents with RAG for pipelines (current: `01-agentic-rag`)
-6. 06-evaluation-and-debugging — Metrics, adversarial testing, prompt-debugging
-7. 07-deployment-and-costs — Serving models, latency, cost optimization
-8. 08-advanced-topics — Multimodality, fine-tuning, RLHF overview
+
+## Module Summaries
+
+- **01-agentic-rag — Agentic RAG:** Build a Retrieval-Augmented Generation
+	(RAG) pipeline from lesson pages: ingest lesson markdowns from GitHub,
+	index content with `minsearch`, apply chunking for long pages, and combine
+	retrieval with an LLM to answer questions. The module additionally covers
+	measuring token usage and costs, and turning RAG into an agent by exposing
+	a `search` tool so the model can decide when to look up information.
+
+- Folder: [01-agentic-rag](01-agentic-rag)
