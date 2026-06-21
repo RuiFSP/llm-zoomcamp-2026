@@ -25,6 +25,8 @@ Reference
 
 - ### 01-agentic-rag — Agentic RAG:
 
+	![Module 01 infographic](assets/module01_infographic.png)
+
 	#### Key topics covered (Module 01) ✔
 
 	- RAG fundamentals: combining a retriever (index/search) with an LLM to answer
