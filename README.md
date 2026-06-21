@@ -31,4 +31,4 @@ How to add and maintain a module
 	measuring token usage and costs, and turning RAG into an agent by exposing
 	a `search` tool so the model can decide when to look up information.
 
-- Folder: [01-agentic-rag](01-agentic-rag)
+	- Folder: [01-agentic-rag](01-agentic-rag)
