@@ -32,3 +32,8 @@ How to add and maintain a module
 	a `search` tool so the model can decide when to look up information.
 
 	- Folder: [01-agentic-rag](01-agentic-rag)
+
+- **02-vector-search — Vector Search (materials available):** Covers
+  embeddings, vector indexes (pgvector, SQLite vector extensions), persistent
+  vector stores, and practical examples with `minsearch` + vector backends.
+  Folder: [02-vector-search](02-vector-search)
