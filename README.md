@@ -13,7 +13,7 @@ Reference
 ## Course Progress / Module Roadmap
 
 1. 01-agentic-rag — Agentic RAG ([01-agentic-rag](01-agentic-rag)) ✅
-2. 02-vector-search — Vector Search ([02-vector-search](02-vector-search)) 💻
+2. 02-vector-search — Vector Search ([02-vector-search](02-vector-search)) ✅
 3. 03-orchestration — Orchestration (planned)
 4. 04-evaluation — Evaluation (planned)
 5. 05-monitoring — Monitoring (planned)
@@ -53,7 +53,29 @@ Reference
 		between runs.
 
 
-- ### 02-vector-search — Vector Search (materials available):
+- ### 02-vector-search — Vector Search:
 
-	#### Key topics covered (Module 02)
+	![Module 02 infographic](assets/module02_infographic.png)
+
+	#### Key topics covered (Module 02) ✔
+
+	- Text embeddings: turning text into 384-dimensional vectors using
+		`all-MiniLM-L6-v2` via sentence-transformers and ONNX Runtime;
+		normalized vectors where dot product equals cosine similarity.
+	- Vector search from scratch: embedding all documents into a matrix,
+		scoring with numpy dot product, and retrieving top-K via `np.argmax`
+		and `np.argsort`.
+	- Vector search with minsearch: using `VectorSearch` (same fit/search
+		API as text `Index`) with keyword filtering via `filter_dict`.
+	- Persistent vector indexes: exploring sqlitesearch (ANN modes:
+		LSH/IVF/HNSW) and PGVector for production-grade persistent storage.
+	- Lighter deployments with ONNX: replacing the 4.8 GB sentence-transformers
+		environment with a 147 MB ONNX Runtime setup — same embeddings,
+		33× smaller footprint.
+	- Text search vs vector search: comparing keyword (exact match) and
+		semantic (embedding similarity) search; observing which pages each
+		method surfaces for the same query.
+	- Hybrid search with Reciprocal Rank Fusion (RRF): combining ranked lists
+		from both methods using `RRF(d) = Σ 1/(k + rank(d))` with k=60 to get
+		the best of both approaches.
 
