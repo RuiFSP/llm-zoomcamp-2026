@@ -1,81 +1,73 @@
 # llm-zoomcamp-2026
 
-This repository hosts materials and homeworks for the LLM Zoomcamp maintained by RuiFSPinto.
+This repository hosts materials and homeworks for the [LLM Zoomcamp](https://llm-zoomcamp.datatalks.club/) maintained by RuiFSPinto.
 
-Purpose
-- Central place for course modules, class materials, and homework assignments.
-- Each module lives in a top-level folder named `NN-topic-name` and contains the module's `class_materials/` and `homeworkNN/` directories.
+## Overview
 
-Reference
-- The structure is inspired by the DataTalksClub LLM Zoomcamp: https://github.com/DataTalksClub/llm-zoomcamp
-
-
-## Course Progress / Module Roadmap
-
-1. 01-agentic-rag — Agentic RAG ([01-agentic-rag](01-agentic-rag)) ✅
-2. 02-vector-search — Vector Search ([02-vector-search](02-vector-search)) ✅
-3. 03-orchestration — Orchestration (planned)
-4. 04-evaluation — Evaluation (planned)
-5. 05-monitoring — Monitoring (planned)
-6. 06-best-practices — Best Practices (planned)
-7. 07-project-example — Project Example (planned)
+- **Purpose:** Central place for course modules, class materials, and homework assignments.
+- **Structure:** Each module lives in a top-level folder named `NN-topic-name` with `class_materials/` and `homeworkNN/` subdirectories.
+- **Reference:** Inspired by [DataTalksClub/llm-zoomcamp](https://github.com/DataTalksClub/llm-zoomcamp)
 
 
-## Module Summaries
+## Course Progress
 
-- ### 01-agentic-rag — Agentic RAG:
-
-	![Module 01 infographic](assets/module01_infographic.png)
-
-	#### Key topics covered (Module 01) ✔
-
-	- RAG fundamentals: combining a retriever (index/search) with an LLM to answer
-		queries using retrieved context instead of relying only on the model's
-		parametric knowledge.
-	- Document ingestion: fetching lesson markdown files from GitHub with
-		`gitsource` and parsing into simple documents with `filename` and
-		`content` fields.
-	- Indexing and search: using `minsearch` to index `content` as a text field
-		and `filename` as a keyword field; crafting queries and inspecting top
-		results to validate relevance.
-	- Chunking for better retrieval: splitting long pages into overlapping
-		chunks (`chunk_documents`) so matches are more precise and prompts remain
-		smaller.
-	- Token usage and cost awareness: estimating prompt tokens with `tiktoken`
-		when available (fallback heuristic otherwise), reading provider-reported
-		usage from LLM responses, and computing approximate cost per token.
-	- Making RAG robust: adapting helper classes to work with `filename`/`content`
-		documents, handling different index APIs, and defensively extracting
-		provider usage fields.
-	- Agentic loop: giving the model a `search` tool (implemented over the chunk
-		index) and running an agent loop (ToyAIKit or equivalent) that decides when
-		to call `search` and when to answer; observing that tool-call counts vary
-		between runs.
+| Module | Topic | Status | Links |
+|--------|-------|--------|-------|
+| 01 | Agentic RAG | ✅ Complete | [Materials](01-agentic-rag/class_materials) \| [Homework](01-agentic-rag/homework01) |
+| 02 | Vector Search | ✅ Complete | [Materials](02-vector-search/class_materials) \| [Homework](02-vector-search/homework02) |
+| 03 | AI Orchestration | ✅ Complete | [Materials](03-orchestration/class_materials) \| [Homework](03-orchestration/homework03) |
+| 04 | Evaluation | 📋 Planned | — |
+| 05 | Monitoring | 📋 Planned | — |
+| 06 | Best Practices | 📋 Planned | — |
+| 07 | Project Example | 📋 Planned | — |
 
 
-- ### 02-vector-search — Vector Search:
+## Module Details
 
-	![Module 02 infographic](assets/module02_infographic.png)
+### 01 — Agentic RAG
 
-	#### Key topics covered (Module 02) ✔
+![Module 01 infographic](assets/module01_infographic.png)
 
-	- Text embeddings: turning text into 384-dimensional vectors using
-		`all-MiniLM-L6-v2` via sentence-transformers and ONNX Runtime;
-		normalized vectors where dot product equals cosine similarity.
-	- Vector search from scratch: embedding all documents into a matrix,
-		scoring with numpy dot product, and retrieving top-K via `np.argmax`
-		and `np.argsort`.
-	- Vector search with minsearch: using `VectorSearch` (same fit/search
-		API as text `Index`) with keyword filtering via `filter_dict`.
-	- Persistent vector indexes: exploring sqlitesearch (ANN modes:
-		LSH/IVF/HNSW) and PGVector for production-grade persistent storage.
-	- Lighter deployments with ONNX: replacing the 4.8 GB sentence-transformers
-		environment with a 147 MB ONNX Runtime setup — same embeddings,
-		33× smaller footprint.
-	- Text search vs vector search: comparing keyword (exact match) and
-		semantic (embedding similarity) search; observing which pages each
-		method surfaces for the same query.
-	- Hybrid search with Reciprocal Rank Fusion (RRF): combining ranked lists
-		from both methods using `RRF(d) = Σ 1/(k + rank(d))` with k=60 to get
-		the best of both approaches.
+**Key Topics:**
+
+- RAG fundamentals: combining a retriever (index/search) with an LLM to answer queries using retrieved context instead of relying only on the model's parametric knowledge.
+- Document ingestion: fetching lesson markdown files from GitHub with `gitsource` and parsing into simple documents.
+- Indexing and search: using `minsearch` to index content and keyword fields; validating retrieval quality.
+- Chunking for better retrieval: splitting long pages into overlapping chunks for more precise matches.
+- Token usage and cost awareness: estimating prompt tokens with `tiktoken`, reading provider-reported usage, and computing cost.
+- Making RAG robust: adapting to different document structures and index APIs.
+- Agentic loop: giving the model a `search` tool and running an agent loop that decides when to search vs. answer.
+
+
+### 02 — Vector Search
+
+![Module 02 infographic](assets/module02_infographic.png)
+
+**Key Topics:**
+
+- Text embeddings: converting text to 384-dimensional vectors using `all-MiniLM-L6-v2` via sentence-transformers and ONNX Runtime.
+- Vector search from scratch: embedding documents into matrices, scoring with cosine similarity, and retrieving top-K results.
+- Vector search with minsearch: using `VectorSearch` with keyword filtering via `filter_dict`.
+- Persistent vector indexes: exploring sqlitesearch (LSH/IVF/HNSW modes) and PGVector for production storage.
+- Lighter deployments with ONNX: replacing the 4.8 GB sentence-transformers environment with a 147 MB ONNX Runtime setup — 33× smaller footprint.
+- Text vs vector search: comparing keyword (exact match) and semantic (embedding similarity) approaches.
+- Hybrid search with RRF: combining ranked lists from both methods using Reciprocal Rank Fusion for best-of-both results.
+
+
+### 03 — AI Orchestration
+
+![Module 03 infographic](assets/module03_infographic.png)
+
+**Key Topics:**
+
+- Context engineering for AI: designing prompts and system messages to provide the right context for reliable AI responses.
+- AI Copilot for workflow generation: using AI (with RAG over Kestra documentation) to generate flows faster and more accurately.
+- RAG in production: grounding AI responses in real data and documentation instead of training data alone.
+- AI Agents and autonomous execution: building agents with `AIAgent` plugin that dynamically run an internal loop to plan, execute tools, and decide next steps.
+- Multi-agent systems: designing systems where specialized agents collaborate; using one agent as a tool for another.
+- Tool use and dynamic invocation: equipping agents with tools (web search, database queries, task execution) and letting the model decide when to use them.
+- Memory and context persistence: using Kestra KVStore to maintain conversation history across multiple agent executions.
+- Real-time data integration: combining scheduled workflows with on-demand data retrieval to keep responses current.
+- Token usage tracking and cost optimization: monitoring input/output tokens across multiple agent calls.
+- Kestra best practices: managing secrets, running flows in Docker, integrating with multiple LLM providers (Gemini, OpenAI, Anthropic).
 

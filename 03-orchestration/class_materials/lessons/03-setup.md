@@ -8,12 +8,40 @@ Here's how to set up everything you need to run the example flows in this module
 
 This module requires [Docker](https://docs.docker.com/get-started/get-docker/) with Docker Compose to run Kestra locally. [Docker Desktop](https://www.docker.com/products/docker-desktop/) is the easiest way to get both on Mac and Windows. If you don't have Docker installed, set that up before proceeding.
 
-## Step 1: Start Kestra
+## Step 1: Configure Secrets
 
-This module includes a `docker-compose.yml` with Kestra pre-configured:
+Create a `.env` file in the `03-orchestration/class_materials/` directory with your **base64-encoded** API keys. Kestra requires secrets to be base64-encoded:
 
 ```bash
-cd 03-orchestration
+cd 03-orchestration/class_materials
+
+# Base64 encode your API keys
+export GEMINI_KEY="your_raw_gemini_api_key_here"
+export OPENAI_KEY="your_raw_openai_api_key_here"
+export TAVILY_KEY="your_raw_tavily_api_key_here"
+
+# Create .env with base64-encoded values
+SECRET_GEMINI_API_KEY=$(echo -n "$GEMINI_KEY" | base64)
+SECRET_OPENAI_API_KEY=$(echo -n "$OPENAI_KEY" | base64)
+SECRET_TAVILY_API_KEY=$(echo -n "$TAVILY_KEY" | base64)
+
+# Add to .env file:
+cat >> .env << EOF
+SECRET_GEMINI_API_KEY=$SECRET_GEMINI_API_KEY
+SECRET_OPENAI_API_KEY=$SECRET_OPENAI_API_KEY
+SECRET_TAVILY_API_KEY=$SECRET_TAVILY_API_KEY
+EOF
+```
+
+> [!NOTE]
+> The API keys stored in `.env` must be base64-encoded. Docker Compose will pass them to Kestra as environment variables, and Kestra will automatically decode them when you reference them in flows with `{{ secret('GEMINI_API_KEY') }}`.
+
+## Step 2: Start Kestra
+
+Start the Kestra server:
+
+```bash
+cd 03-orchestration/class_materials
 docker compose up -d
 ```
 
@@ -25,7 +53,7 @@ To shut down Kestra:
 docker compose down
 ```
 
-## Step 2: Obtain API Keys
+## Step 3: Obtain API Keys
 
 **Gemini API Key (Required)**
 
@@ -48,29 +76,14 @@ The free tier is sufficient for light use, but rate limits are relatively low �
 
 The free tier includes 1,000 searches/month.
 
-## Step 3: Configure API Keys in Kestra
+## Step 4: Reference Secrets in Flows
 
-Kestra reads secrets from environment variables prefixed with `SECRET_` where the value is base64-encoded. Export your keys before starting Kestra:
-
-```bash
-export GEMINI_API_KEY="your-gemini-api-key-here" # required
-export SECRET_GEMINI_API_KEY=$(echo -n $GEMINI_API_KEY | base64) # required
-export SECRET_OPENAI_API_KEY=$(echo -n "your-openai-api-key-here" | base64)   # required for flow 3
-export SECRET_TAVILY_API_KEY=$(echo -n "your-tavily-api-key-here" | base64)   # optional
-```
-
-Then start (or restart) Kestra:
-
-```bash
-docker compose up -d
-```
-
-In flows, reference secrets with `{{ secret('GEMINI_API_KEY') }}` — omit the `SECRET_` prefix when calling `secret()`.
+In your Kestra flows, reference secrets with `{{ secret('GEMINI_API_KEY') }}` — omit the `SECRET_` prefix when calling `secret()`. Kestra will automatically decode the base64-encoded value from the environment and use the raw API key.
 
 > [!WARNING]
-> Never commit API keys to Git!
+> Never commit the `.env` file to Git! Add it to `.gitignore`.
 
-## Step 4: Import Example Flows
+## Step 5: Import Example Flows
 
 ```bash
 cd 03-orchestration
@@ -86,7 +99,7 @@ curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/
 
 Alternatively, copy-paste the flow YAML directly into Kestra's UI.
 
-## Step 5: Run Your First Agent
+## Step 6: Run Your First Agent
 
 1. Open Kestra UI at http://localhost:8080
 2. Navigate to the `zoomcamp` namespace
