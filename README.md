@@ -16,7 +16,7 @@ This repository hosts materials and homeworks for the [LLM Zoomcamp](https://llm
 | 01 | Agentic RAG | ✅ Complete | [Materials](01-agentic-rag/class_materials) \| [Homework](01-agentic-rag/homework01) |
 | 02 | Vector Search | ✅ Complete | [Materials](02-vector-search/class_materials) \| [Homework](02-vector-search/homework02) |
 | 03 | AI Orchestration | ✅ Complete | [Materials](03-orchestration/class_materials) \| [Homework](03-orchestration/homework03) |
-| 04 | Evaluation | 📋 Planned | — |
+| 04 | Evaluation | ✅ Complete | [Materials](04-evaluation/class_materials) \| [Homework](04-evaluation/homework04) |
 | 05 | Monitoring | 📋 Planned | — |
 | 06 | Best Practices | 📋 Planned | — |
 | 07 | Project Example | 📋 Planned | — |
@@ -70,4 +70,18 @@ This repository hosts materials and homeworks for the [LLM Zoomcamp](https://llm
 - Real-time data integration: combining scheduled workflows with on-demand data retrieval to keep responses current.
 - Token usage tracking and cost optimization: monitoring input/output tokens across multiple agent calls.
 - Kestra best practices: managing secrets, running flows in Docker, integrating with multiple LLM providers (Gemini, OpenAI, Anthropic).
+
+
+### 04 — Evaluation
+
+![Module 04 infographic](assets/module_04_infographic.png)
+
+**Key Topics:**
+
+- Ground truth generation: creating labeled evaluation questions from lesson content with structured LLM outputs.
+- Search evaluation framework: computing relevance lists and evaluating retrieval methods consistently.
+- Core retrieval metrics: measuring search quality with Hit Rate and MRR.
+- Comparative evaluation: benchmarking text, vector, and hybrid retrieval on the same dataset.
+- Hybrid tuning with RRF: testing multiple `k` values to select the best ranking behavior.
+- Evidence-driven iteration: using offline evaluation to tune retrieval parameters instead of guessing.
 
