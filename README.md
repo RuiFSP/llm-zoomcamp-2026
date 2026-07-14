@@ -74,7 +74,7 @@ This repository hosts materials and homeworks for the [LLM Zoomcamp](https://llm
 
 ### 04 — Evaluation
 
-![Module 04 infographic](assets/module_04_infographic.png)
+![Module 04 infographic](assets/module04_infographic.png)
 
 **Key Topics:**
 
