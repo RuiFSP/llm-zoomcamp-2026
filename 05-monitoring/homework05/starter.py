@@ -3,6 +3,9 @@
 Sets up the text-search RAG from homework 1 and a shared OpenAI client.
 """
 
+from pathlib import Path
+
+from dotenv import load_dotenv
 from openai import OpenAI
 
 from gitsource import GithubRepositoryDataReader
@@ -11,6 +14,9 @@ from minsearch import Index
 from rag_helper import RAGBase
 
 COMMIT = "8c1834d"
+
+# Load repo-root .env before creating OpenAI client.
+load_dotenv(dotenv_path=Path(__file__).resolve().parents[2] / ".env", override=True)
 
 # --- Load the course lessons (same as HW1, HW2, HW4) ---
 reader = GithubRepositoryDataReader(

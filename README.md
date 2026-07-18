@@ -17,9 +17,7 @@ This repository hosts materials and homeworks for the [LLM Zoomcamp](https://llm
 | 02 | Vector Search | ✅ Complete | [Materials](02-vector-search/class_materials) \| [Homework](02-vector-search/homework02) |
 | 03 | AI Orchestration | ✅ Complete | [Materials](03-orchestration/class_materials) \| [Homework](03-orchestration/homework03) |
 | 04 | Evaluation | ✅ Complete | [Materials](04-evaluation/class_materials) \| [Homework](04-evaluation/homework04) |
-| 05 | Monitoring | 📋 Planned | — |
-| 06 | Best Practices | 📋 Planned | — |
-| 07 | Project Example | 📋 Planned | — |
+| 05 | Monitoring | ✅ Complete | [Materials](05-monitoring/class_materials) \| [Homework](05-monitoring/homework05) |
 
 
 ## Module Details
@@ -84,4 +82,22 @@ This repository hosts materials and homeworks for the [LLM Zoomcamp](https://llm
 - Comparative evaluation: benchmarking text, vector, and hybrid retrieval on the same dataset.
 - Hybrid tuning with RRF: testing multiple `k` values to select the best ranking behavior.
 - Evidence-driven iteration: using offline evaluation to tune retrieval parameters instead of guessing.
+
+
+### 05 — Monitoring
+
+![Module 05 infographic](assets/module05_infographic.png)
+
+**Key Topics:**
+
+- Online monitoring foundations: tracking system behavior on real user traffic after offline evaluation.
+- Chat app instrumentation: capturing prompt/response metadata from RAG calls in a Streamlit interface.
+- Token, latency, and cost telemetry: recording input/output tokens, response time, and computed call cost.
+- Persistent observability data: saving conversation records and metrics for historical analysis.
+- SQL-based analytics: querying stored runs for aggregate stats and debugging slow or costly behavior.
+- User feedback loops: collecting thumbs up/down labels to complement automatic metrics.
+- LLM-as-a-judge checks: using model-based relevance scoring for additional quality signals.
+- Dashboarding workflows: building operational views in Streamlit and Grafana.
+- OpenTelemetry tracing (homework): instrumenting `rag`, `search`, and `llm` spans with attributes.
+- Lightweight trace persistence: exporting spans to SQLite for local analysis of durations and token stability.
 
