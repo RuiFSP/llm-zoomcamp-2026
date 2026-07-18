@@ -101,3 +101,24 @@ This repository hosts materials and homeworks for the [LLM Zoomcamp](https://llm
 - OpenTelemetry tracing (homework): instrumenting `rag`, `search`, and `llm` spans with attributes.
 - Lightweight trace persistence: exporting spans to SQLite for local analysis of durations and token stability.
 
+
+## Workshops
+
+Additional hands-on workshops for specialized topics:
+
+### dlt/Logfire Integration Workshop
+
+**Location:** [`workshops/homework_workshop/`](workshops/homework_workshop/)
+
+**Overview:** Integration of data loading and observability tools with a Pydantic AI agent that searches a FAQ database.
+
+**Solved Homework:** [Solution Summary](workshops/homework_solution.md) | [Detailed Guide](workshops/homework_workshop/HOMEWORK_SOLUTION.md)
+
+**Key Topics:**
+
+- **Pydantic AI agents**: declarative agent framework with tool decorators and automatic function-calling loops.
+- **Logfire instrumentation**: tracing LLM calls and agent spans using Pydantic's native observability platform.
+- **Token measurement**: tracking input/output tokens from OpenAI API responses to understand cost and latency.
+- **dlt (data load tool)**: normalizing nested JSON (OpenTelemetry traces) into relational DuckDB tables.
+- **Span counting**: understanding multi-level tracing from agent → LLM calls → tool execution.
+
